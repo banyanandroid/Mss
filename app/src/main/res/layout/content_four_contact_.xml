@@ -1,0 +1,643 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFF"
+    android:orientation="vertical"
+    android:weightSum="10"
+
+    tools:context=".SixContact_Activity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_weight="0.5"
+        android:weightSum="3"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Coimbatore"
+            android:layout_gravity="center"
+            android:gravity="left|center"
+            android:textColor="@color/white"
+            android:layout_weight="1.07"
+            android:id="@+id/triplistA_txt_from" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="15sp"
+            android:text="27/12/2016"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_weight=".85"
+            android:id="@+id/triplistA_txt_date" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Viruthachalem"
+            android:layout_gravity="center"
+            android:gravity="right|center"
+            android:textColor="@color/white"
+            android:layout_weight="1.08"
+            android:id="@+id/triplistA_txt_to" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9">
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:isScrollContainer="false" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="50dp"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:background="#FFFF" >
+
+                    <EditText
+                        android:id="@+id/email"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/traveldate"
+                        android:layout_alignBottom="@+id/traveldate"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="28dp"
+                        android:layout_toRightOf="@+id/traveldate"
+                        android:ems="10"
+                        android:hint="Enter E-mailid"
+                        android:inputType="textEmailAddress"
+                        android:textColor="#435255"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/mobile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/Boardingpoint"
+                        android:layout_alignLeft="@+id/email"
+                        android:ems="10"
+                        android:hint="Enter mobile number"
+                        android:inputType="phone"
+                        android:textColor="#435255"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/textView5"
+                        android:layout_alignBottom="@+id/textView5"
+                        android:layout_alignLeft="@+id/email"
+                        android:text="your ticket details will be sent to this email"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:text="id and mobile"
+                        android:textSize="11sp" />
+
+                    <View
+                        android:id="@+id/view1"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignBottom="@+id/fromto"
+                        android:layout_alignParentLeft="true"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/textView7"
+                        android:layout_alignParentLeft="true"
+                        android:text="Please note"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/fromto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="16dp"
+                        android:text="Contact Details"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/traveldate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/view1"
+                        android:layout_marginTop="20dp"
+                        android:text="Email"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/Boardingpoint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/textView5"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginBottom="15dp"
+                        android:text="Mobile"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_alignLeft="@+id/relativeLayout1"
+                    android:layout_below="@+id/relativeLayout1"
+                    android:layout_marginTop="18dp"
+                    android:background="#FFFF" >
+
+                    <TextView
+                        android:id="@+id/email_"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="14dp"
+                        android:text="Primary passenger"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignBottom="@+id/email_"
+                        android:layout_alignParentLeft="true"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/email_"
+                        android:layout_marginTop="20dp"
+                        android:text="Full Name"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/phone"
+                        android:layout_marginTop="18dp"
+                        android:text="Age"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/phone"
+                        android:layout_alignBottom="@+id/phone"
+                        android:layout_alignParentRight="true"
+                        android:ems="10"
+                        android:hint="Enter your name"
+                        android:inputType="textPersonName"
+                        android:textColor="#435255"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/age"
+                        android:layout_width="93dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/name"
+                        android:layout_alignTop="@+id/textView10"
+                        android:ems="10"
+                        android:hint="Enter age"
+                        android:inputType="number"
+                        android:textSize="16sp" >
+
+                        <requestFocus
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </EditText>
+
+                    <TextView
+                        android:id="@+id/fare_"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/age"
+                        android:layout_marginTop="16dp"
+                        android:text="Gender"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/seatno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/email_"
+                        android:layout_alignBottom="@+id/email_"
+                        android:layout_alignParentRight="true"
+                        android:text="SeatNo"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/spinner1"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/age"
+                        android:layout_below="@+id/age" />
+                </RelativeLayout>
+
+
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_alignLeft="@+id/relativeLayout2"
+                    android:layout_below="@+id/relativeLayout2"
+                    android:layout_marginTop="18dp"
+                    android:background="#FFFF" >
+
+                    <TextView
+                        android:id="@+id/copass"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="14dp"
+                        android:text="Co passenger-2"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignBottom="@+id/copass"
+                        android:layout_alignParentLeft="true"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/sfullname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/copass"
+                        android:layout_marginTop="20dp"
+                        android:text="Full Name"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/secnage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/sfullname"
+                        android:layout_marginTop="18dp"
+                        android:text="Age"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/secname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/sfullname"
+                        android:layout_alignBottom="@+id/sfullname"
+                        android:layout_alignParentRight="true"
+                        android:ems="10"
+                        android:hint="Enter your name"
+                        android:inputType="textPersonName"
+                        android:textColor="#435255"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/secage"
+                        android:layout_width="93dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/secname"
+                        android:layout_alignTop="@+id/secnage"
+                        android:ems="10"
+                        android:hint="Enter age"
+                        android:inputType="number"
+                        android:textSize="16sp" >
+
+                        <requestFocus
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </EditText>
+
+                    <TextView
+                        android:id="@+id/segender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/secnage"
+                        android:layout_marginTop="16dp"
+                        android:text="Gender"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/sseatno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/copass"
+                        android:layout_alignBottom="@+id/copass"
+                        android:layout_alignParentRight="true"
+                        android:text="SeatNo"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/spinner3"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/secage"
+                        android:layout_below="@+id/secage" >
+                    </Spinner>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_alignLeft="@+id/relativeLayout3"
+                    android:layout_below="@+id/relativeLayout3"
+                    android:layout_marginTop="18dp"
+                    android:background="#FFFF" >
+
+                    <TextView
+                        android:id="@+id/copass3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="14dp"
+                        android:text="Co passenger-3"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignBottom="@+id/copass3"
+                        android:layout_alignParentLeft="true"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/thrfullname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/copass3"
+                        android:layout_marginTop="20dp"
+                        android:text="Full Name"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/thrage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/thrfullname"
+                        android:layout_marginTop="18dp"
+                        android:text="Age"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/tname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/thrfullname"
+                        android:layout_alignBottom="@+id/thrfullname"
+                        android:layout_alignParentRight="true"
+                        android:ems="10"
+                        android:hint="Enter your name"
+                        android:inputType="textPersonName"
+                        android:textColor="#435255"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/tage"
+                        android:layout_width="93dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/tname"
+                        android:layout_alignTop="@+id/thrage"
+                        android:ems="10"
+                        android:hint="Enter age"
+                        android:inputType="number"
+                        android:textSize="16sp" >
+
+                        <requestFocus
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </EditText>
+
+                    <TextView
+                        android:id="@+id/thrgender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/thrage"
+                        android:layout_marginTop="16dp"
+                        android:text="Gender"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/thrseatno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/copass3"
+                        android:layout_alignBottom="@+id/copass3"
+                        android:layout_alignParentRight="true"
+                        android:text="SeatNo"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/spinner4"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/tage"
+                        android:layout_below="@+id/tage" >
+                    </Spinner>
+                </RelativeLayout>
+
+
+
+
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_alignLeft="@+id/relativeLayout4"
+                    android:layout_below="@+id/relativeLayout3"
+                    android:layout_marginTop="18dp"
+                    android:background="#FFFF" >
+
+                    <TextView
+                        android:id="@+id/copass4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="14dp"
+                        android:text="Co passenger-4"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignBottom="@+id/copass4"
+                        android:layout_alignParentLeft="true"
+                        android:background="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/fourfullname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/copass4"
+                        android:layout_marginTop="20dp"
+                        android:text="Full Name"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/fourage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/fourfullname"
+                        android:layout_marginTop="18dp"
+                        android:text="Age"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/fname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/fourfullname"
+                        android:layout_alignBottom="@+id/fourfullname"
+                        android:layout_alignParentRight="true"
+                        android:ems="10"
+                        android:hint="Enter your name"
+                        android:inputType="textPersonName"
+                        android:textColor="#435255"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/fage"
+                        android:layout_width="93dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/fname"
+                        android:layout_alignTop="@+id/fourage"
+                        android:ems="10"
+                        android:hint="Enter age"
+                        android:inputType="number"
+                        android:textSize="16sp" >
+
+                        <requestFocus
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </EditText>
+
+                    <TextView
+                        android:id="@+id/fourgender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/fourage"
+                        android:layout_marginTop="16dp"
+                        android:text="Gender"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/fourseatno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/copass4"
+                        android:layout_alignBottom="@+id/copass4"
+                        android:layout_alignParentRight="true"
+                        android:text="SeatNo"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/spinner5"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/fage"
+                        android:layout_below="@+id/fage" >
+                    </Spinner>
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/contineu_booking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:layout_alignLeft="@+id/scrollView1"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/searchbusbutton"
+        android:drawableLeft="@drawable/ic_city"
+        android:paddingRight="30dp"
+        android:text="Continue booking"
+        android:textColor="#FFFF"
+        android:textSize="20sp" />
+
+</LinearLayout>

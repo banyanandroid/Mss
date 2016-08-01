@@ -1,0 +1,157 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:weightSum="3">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="top"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="0.75"
+            android:background="@color/cpb_grey"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="3">
+
+            <AutoCompleteTextView
+                android:id="@+id/edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1.25"
+                android:completionThreshold="1"
+                android:hint="From" />
+
+            <ImageView
+                android:id="@+id/place"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".50"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@mipmap/ic_reverse" />
+
+            <AutoCompleteTextView
+                android:id="@+id/edit2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1.25"
+                android:completionThreshold="1"
+                android:hint="To" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.75"
+            android:background="@color/cpb_grey"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="showDatePickerDialog"
+                android:text="DD"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:textSize="52sp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/cpb_grey"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+
+                <TextView
+                    android:id="@+id/month"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:clickable="true"
+                    android:onClick="showDatePickerDialog"
+                    android:text="MM"
+                    android:layout_marginBottom="3dp"
+                    android:gravity="bottom"
+                    android:layout_gravity="left|bottom"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textSize="26sp" />
+                <TextView
+                    android:id="@+id/year"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:clickable="true"
+                    android:onClick="showDatePickerDialog"
+                    android:text="YY"
+                    android:layout_marginTop="3dp"
+                    android:layout_gravity="left|top"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textSize="26sp" />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/cal"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:clickable="true"
+                android:layout_weight="0.75"
+                android:onClick="showDatePickerDialog"
+                android:src="@drawable/calendar" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1.50"
+            android:gravity="bottom|center">
+
+            <com.dd.CircularProgressButton
+                android:id="@+id/circularButton"
+                android:layout_width="196dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:cpb_paddingProgress="10dp"
+                app:cpb_textComplete="Complete"
+                app:cpb_textError="Error"
+                app:cpb_textIdle="Search Bus" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

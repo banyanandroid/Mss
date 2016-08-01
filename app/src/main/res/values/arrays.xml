@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="arr_spn_transc_type">
+        <item>SALE</item>
+        <item>PREAUTH</item>
+    </string-array>
+    <string-array name="arr_spn_transc_sale_subtype">
+        <item>DEBIT</item>
+    </string-array>
+    <string-array name="arr_spn_transc_preauth_subtype">
+        <item>RESERVE</item>
+        <item>CONSUME</item>
+    </string-array>
+
+</resources>

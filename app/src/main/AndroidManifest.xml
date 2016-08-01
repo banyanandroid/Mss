@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.banyan.mss">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- permission for SMS Reading -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- Permission to vibrate - recommended, allows vibration feedback on scan -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- Permission to use camera - required -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Camera features - recommended -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+
+    <application
+        android:name=".GlobalValues"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Home_Activity"
+            android:label="MSS Travels"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!--
+             ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".Trip_List_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Seat_Selection_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.light" />
+        <activity
+            android:name=".Select_Boarding_point_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sleeper30_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.light" />
+        <activity
+            android:name=".sleeper32_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sleeper36_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Passenger_details_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DoubleContact_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ThreeContact_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Conform_Booking"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FourContact_Activity"
+            android:label="@string/title_activity_four_contact_"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FifthContact_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SixContact_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CheckoutActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- Paynimo -->
+
+        <activity
+            android:name="com.paynimo.android.payment.OTPReadingActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.paynimo.android.payment.PaymentModesActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.paynimo.android.payment.PaymentActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.paynimo.android.payment.WebViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- Activities responsible for camera -->
+        <activity
+            android:name="io.card.payment.CardIOActivity"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity android:name="io.card.payment.DataEntryActivity" />
+
+        <receiver android:name="com.paynimo.android.payment.network.NetworkStateReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".finish_Activity"
+            android:label="@string/title_activity_finish_"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Eticket_Activity" />
+        <activity
+            android:name=".Login_Activity"
+            android:label="@string/title_activity_login_"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Register_Activity"
+            android:label="@string/title_activity_register_"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+    </application>
+
+</manifest>
