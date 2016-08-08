@@ -46,6 +46,10 @@ public class CheckoutActivity extends AppCompatActivity {
     private AlertDialog dialog;
     String email, mobile;
 
+    //Session
+    SessionManager session;
+    String str_id,str_mobile,str_name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +59,19 @@ public class CheckoutActivity extends AppCompatActivity {
         email = getIntent().getExtras().getString("email");
 
         mobile = getIntent().getExtras().getString("mobile");
+
+        //session
+        session = new SessionManager(getApplicationContext());
+
+        session.checkLogin();
+
+        // get user data from session
+        HashMap<String, String> user = session.getUserDetails();
+
+        // name
+        str_id = user.get(SessionManager.KEY_ID);
+        str_mobile = user.get(SessionManager.KEY_MOBILE);
+        str_name = user.get(SessionManager.KEY_LOGINID);
 
         Checkout checkout = new Checkout();
 
@@ -280,7 +297,8 @@ public class CheckoutActivity extends AppCompatActivity {
             dialog.show();
             dialog.setCancelable(false);
             queue = Volley.newRequestQueue(CheckoutActivity.this);
-            url = "http://www.mssbus.com/api/app/?BookTicket&Appkey=HaPpY&bookingId=" + AppConfig.bookingId + "&format=json";
+           // url = "http://www.mssbus.com/api/app/?BookTicket&Appkey=HaPpY&bookingId=" + AppConfig.bookingId + "&format=json";
+            url = "http://www.mssbus.com/api/app/?BookTicket&Appkey=HaPpY&UserId="+str_id+"&bookingId="+AppConfig.bookingId+"&format=json";
             makeJsonObjectRequest();
 
         } catch (Exception e) {
@@ -311,15 +329,17 @@ public class CheckoutActivity extends AppCompatActivity {
 
                     JSONObject station_code = (JSONObject) book_ticket
                             .get(book_ticket.length() - 1);
-                    JSONObject status_code = station_code
-                            .getJSONObject("Status");
-                    String statuscode_str = status_code.getString("StatusCode");
+                    /*JSONObject status_code = station_code
+                            .getJSONObject("Status");*/
+                    String statuscode_str = station_code.getString("StatusCode");
 
                     if (statuscode_str.equals("200")) {
 
                         JSONObject pnr_obj = (JSONObject) book_ticket
                                 .get(0);
                         String pnr = pnr_obj.getString("PNR");
+
+                        System.out.println("pnr "+ pnr);
 
                         JSONObject note_obj = (JSONObject) book_ticket
                                 .get(book_ticket.length() - 2);

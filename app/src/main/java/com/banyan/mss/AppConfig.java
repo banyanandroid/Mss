@@ -20,6 +20,7 @@ public class AppConfig {
 
     public static String url_trip_list = null;
 
+    public static String ticket_detail_url = null;
     public static String url_trip_details = null;
 
     public static int from_id = 0;
@@ -54,6 +55,7 @@ public class AppConfig {
 
     public static String email = null;
     public static String mobile = null;
+    public static String epnr = null;
 
     public static ArrayList<String> seats = new ArrayList<String>();
     public static int boardingid = 0;

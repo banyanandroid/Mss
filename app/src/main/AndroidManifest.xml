@@ -151,7 +151,8 @@
         <activity
             android:name=".Register_Activity"
             android:label="@string/title_activity_register_"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Bookdetail_Activity"></activity>
     </application>
 
 </manifest>

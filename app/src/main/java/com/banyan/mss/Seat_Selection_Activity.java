@@ -47,6 +47,7 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
     public Bitmap seatSelect;
     public Bitmap seatbooked;
     public Bitmap ladiesseat;
+    public Bitmap genseat;
     String fare, day, month, seat_count;
     int year, fromid, toid;
     int scheduleId;
@@ -55,7 +56,7 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
     Bitmap seatcompare;
     Button done;
     private AlertDialog dialog;
-    int p;
+    int p,g;
     int swap = 1;
     Integer count = 0;
     final String TAG = "Seat_Selection.java";
@@ -63,6 +64,7 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
     ArrayList<String> seat_status = new ArrayList<String>();
     ArrayList<String> seat_no = new ArrayList<String>();
     ArrayList<String> ladies = new ArrayList<String>();
+    ArrayList<String> gents = new ArrayList<String>();
 
     /*queue*/
     public static RequestQueue queue;
@@ -115,6 +117,8 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
 
         ladiesseat = BitmapFactory.decodeResource(this.getResources(), R.drawable.seat_layout_screen_nor_lad_avl);
 
+        genseat = BitmapFactory.decodeResource(this.getResources(), R.drawable.seat_layout_screen_nor_gen_avl);
+
         driver = BitmapFactory.decodeResource(this.getResources(), R.drawable.steering_icon);
 
         seatSelect = BitmapFactory.decodeResource(this.getResources(), R.drawable.seat_layout_screen_nor_std);
@@ -148,10 +152,10 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
 
                     //((GlobalValues) Seat_Selection_Activity.this.getApplication()).setcount(ticketcount);
 
-
                     Intent in = new Intent(Seat_Selection_Activity.this, Select_Boarding_point_Activity.class);
                     in.putStringArrayListExtra("seats", seat_id);
                     in.putStringArrayListExtra("ladies", ladies);
+                    in.putStringArrayListExtra("gents", gents);
                     in.putExtra("fid", fromid);
                     in.putExtra("tid", toid);
                     in.putExtra("sid", scheduleId);
@@ -189,8 +193,6 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
             } else {
                 gridArray.add(new Item(seatIcon, "" + ""));
             }
-
-
         }
     }
 
@@ -205,7 +207,7 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
         cost.setText("₹" + String.valueOf(balance));
         //Log.e(TAG,"balance------------------------------------->"+split[1] );
         balance = 0f;
-        //Log.e(TAG,"--------------------------------------------------------------------------------");
+        //Log.e(TAG,"--------------------------------------");
         count++;
 
         seat_count = selected_seat.getText().toString();
@@ -510,7 +512,7 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
         cost.setText("₹" + String.valueOf(balance));
         //Log.e(TAG,"balance------------------------------------->"+balance );
         balance = 0f;
-        //Log.e(TAG,"--------------------------------------------------------------------------------");
+        //Log.e(TAG,"------------------------------------------------------");
         count = count - 1;
 
         for (int k = 0; k < 50; k++) {
@@ -640,14 +642,11 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                         }
                     }
 
-
                 }
 
             }
 
-
         }
-
 
         customGridAdapter.notifyDataSetChanged();
     }
@@ -674,16 +673,24 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
 
             p = position;
 
+        } else if (seatcompare == genseat) {
+
+            seatSelected(position);
+
+            g = position;
+
         } else {
             if (p == position) {
 
                 ladiesseat(p);
 
+            }else if (g == position) {
+
+                gentsseat(g);
+
             } else {
                 seatDeselcted(position);
             }
-
-
         }
 
     }
@@ -699,6 +706,458 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
             balance = Float.valueOf(split[1]) - ticketrate;
             gridArray.remove(p2);
             gridArray.add(p2, new Item(ladiesseat, "" + ""));
+            count = count - 1;
+
+            for (int k = 0; k < 50; k++) {
+
+                if (p2 == 9) {
+                    swap = 1;
+                }
+                if (p2 == 8) {
+                    swap = 2;
+                }
+                if (p2 == 5) {
+                    swap = 4;
+                }
+                if (p2 == 10) {
+                    swap = 5;
+                }
+                if (p2 == 11) {
+                    swap = 6;
+                }
+                if (p2 == 13) {
+                    swap = 7;
+                }
+                if (p2 == 14) {
+                    swap = 8;
+                }
+                if (p2 == 19) {
+                    swap = 9;
+                }
+                if (p2 == 18) {
+                    swap = 10;
+                }
+                if (p2 == 16) {
+                    swap = 11;
+                }
+                if (p2 == 15) {
+                    swap = 12;
+                }
+                if (p2 == 20) {
+                    swap = 13;
+                }
+                if (p2 == 21) {
+                    swap = 14;
+                }
+                if (p2 == 23) {
+                    swap = 15;
+                }
+                if (p2 == 24) {
+                    swap = 16;
+                }
+                if (p2 == 29) {
+                    swap = 17;
+                }
+                if (p2 == 28) {
+                    swap = 18;
+                }
+                if (p2 == 26) {
+                    swap = 19;
+                }
+                if (p2 == 25) {
+                    swap = 20;
+                }
+                if (p2 == 30) {
+                    swap = 21;
+                }
+                if (p2 == 31) {
+                    swap = 22;
+                }
+                if (p2 == 33) {
+                    swap = 23;
+                }
+                if (p2 == 34) {
+                    swap = 24;
+                }
+                if (p2 == 39) {
+                    swap = 25;
+                }
+                if (p2 == 38) {
+                    swap = 26;
+                }
+                if (p2 == 36) {
+                    swap = 27;
+                }
+                if (p2 == 35) {
+                    swap = 28;
+                }
+                if (p2 == 40) {
+                    swap = 29;
+                }
+                if (p2 == 41) {
+                    swap = 30;
+                }
+                if (p2 == 43) {
+                    swap = 31;
+                }
+                if (p2 == 44) {
+                    swap = 32;
+                }
+                if (p2 == 49) {
+                    swap = 33;
+                }
+                if (p2 == 48) {
+                    swap = 34;
+                }
+                if (p2 == 46) {
+                    swap = 35;
+                }
+                if (p2 == 45) {
+                    swap = 36;
+                }
+                if (p2 == k) {
+                    selected_seat.setText("");
+                    for (int i = 0; i < seat_id.size(); i++) {
+
+
+                        // Log.e(TAG,"true");
+
+                        seat_id.remove(String.valueOf(swap));
+
+                        if (seat_id.size() == 0) {
+
+                        } else {
+                            if (selected_seat.getText().toString().isEmpty()) {
+
+                                selected_seat.setText(selected_seat.getText().toString() + seat_id.get(i));
+                            } else {
+                                selected_seat.setText(selected_seat.getText().toString() + "," + seat_id.get(i));
+                            }
+                        }
+
+
+                    }
+
+                }
+
+            }
+        } else {
+            balance = Float.valueOf(split[1]) + ticketrate;
+            count++;
+
+            seat_count = selected_seat.getText().toString();
+            //selected seat value
+
+            if (seat_count.isEmpty()) {
+                if (p2 == 9) {
+                    seat_id.add(String.valueOf(1));
+                    selected_seat.setText(String.valueOf(1));
+                }
+                if (p2 == 8) {
+                    seat_id.add(String.valueOf(2));
+                    selected_seat.setText(String.valueOf(2));
+                }
+                if (p2 == 5) {
+                    seat_id.add(String.valueOf(4));
+                    selected_seat.setText(String.valueOf(4));
+                }
+                if (p2 == 10) {
+                    seat_id.add(String.valueOf(5));
+                    selected_seat.setText(String.valueOf(5));
+                }
+                if (p2 == 11) {
+                    seat_id.add(String.valueOf(6));
+                    selected_seat.setText(String.valueOf(6));
+                }
+                if (p2 == 13) {
+                    seat_id.add(String.valueOf(7));
+                    selected_seat.setText(String.valueOf(7));
+                }
+                if (p2 == 14) {
+                    seat_id.add(String.valueOf(8));
+                    selected_seat.setText(String.valueOf(8));
+                }
+                if (p2 == 19) {
+                    seat_id.add(String.valueOf(9));
+                    selected_seat.setText(String.valueOf(9));
+                }
+                if (p2 == 18) {
+                    seat_id.add(String.valueOf(10));
+                    selected_seat.setText(String.valueOf(10));
+                }
+                if (p2 == 16) {
+                    seat_id.add(String.valueOf(11));
+                    selected_seat.setText(String.valueOf(11));
+                }
+                if (p2 == 15) {
+                    seat_id.add(String.valueOf(12));
+                    selected_seat.setText(String.valueOf(12));
+                }
+                if (p2 == 20) {
+                    seat_id.add(String.valueOf(13));
+                    selected_seat.setText(String.valueOf(13));
+                }
+                if (p2 == 21) {
+                    seat_id.add(String.valueOf(14));
+                    selected_seat.setText(String.valueOf(14));
+                }
+                if (p2 == 23) {
+                    seat_id.add(String.valueOf(15));
+                    selected_seat.setText(String.valueOf(15));
+                }
+                if (p2 == 24) {
+                    seat_id.add(String.valueOf(16));
+                    selected_seat.setText(String.valueOf(16));
+                }
+                if (p2 == 29) {
+                    seat_id.add(String.valueOf(17));
+                    selected_seat.setText(String.valueOf(17));
+                }
+                if (p2 == 28) {
+                    seat_id.add(String.valueOf(18));
+                    selected_seat.setText(String.valueOf(18));
+                }
+                if (p2 == 26) {
+                    seat_id.add(String.valueOf(19));
+                    selected_seat.setText(String.valueOf(19));
+                }
+                if (p2 == 25) {
+                    seat_id.add(String.valueOf(20));
+                    selected_seat.setText(String.valueOf(20));
+                }
+                if (p2 == 30) {
+                    seat_id.add(String.valueOf(21));
+                    selected_seat.setText(String.valueOf(21));
+                }
+                if (p2 == 31) {
+                    seat_id.add(String.valueOf(22));
+                    selected_seat.setText(String.valueOf(22));
+                }
+                if (p2 == 33) {
+                    seat_id.add(String.valueOf(23));
+                    selected_seat.setText(String.valueOf(23));
+                }
+                if (p2 == 34) {
+                    seat_id.add(String.valueOf(24));
+                    selected_seat.setText(String.valueOf(24));
+                }
+                if (p2 == 39) {
+                    seat_id.add(String.valueOf(25));
+                    selected_seat.setText(String.valueOf(25));
+                }
+                if (p2 == 38) {
+                    seat_id.add(String.valueOf(26));
+                    selected_seat.setText(String.valueOf(26));
+                }
+                if (p2 == 36) {
+                    seat_id.add(String.valueOf(27));
+                    selected_seat.setText(String.valueOf(27));
+                }
+                if (p2 == 35) {
+                    seat_id.add(String.valueOf(28));
+                    selected_seat.setText(String.valueOf(28));
+                }
+                if (p2 == 40) {
+                    seat_id.add(String.valueOf(29));
+                    selected_seat.setText(String.valueOf(29));
+                }
+                if (p2 == 41) {
+                    seat_id.add(String.valueOf(30));
+                    selected_seat.setText(String.valueOf(30));
+                }
+                if (p2 == 43) {
+                    seat_id.add(String.valueOf(31));
+                    selected_seat.setText(String.valueOf(31));
+                }
+                if (p2 == 44) {
+                    seat_id.add(String.valueOf(32));
+                    selected_seat.setText(String.valueOf(32));
+                }
+                if (p2 == 49) {
+                    seat_id.add(String.valueOf(33));
+                    selected_seat.setText(String.valueOf(33));
+                }
+                if (p2 == 48) {
+                    seat_id.add(String.valueOf(34));
+                    selected_seat.setText(String.valueOf(34));
+                }
+                if (p2 == 46) {
+                    seat_id.add(String.valueOf(35));
+                    selected_seat.setText(String.valueOf(35));
+                }
+                if (p2 == 45) {
+                    seat_id.add(String.valueOf(36));
+                    selected_seat.setText(String.valueOf(36));
+                }
+
+            } else {
+
+                if (p2 == 9) {
+                    seat_id.add(String.valueOf(1));
+                    selected_seat.setText(seat_count + "," + 1);
+                }
+                if (p2 == 8) {
+                    seat_id.add(String.valueOf(2));
+                    selected_seat.setText(seat_count + "," + 2);
+                }
+                if (p2 == 5) {
+                    seat_id.add(String.valueOf(4));
+                    selected_seat.setText(seat_count + "," + 4);
+                }
+                if (p2 == 10) {
+                    seat_id.add(String.valueOf(5));
+                    selected_seat.setText(seat_count + "," + 5);
+                }
+                if (p2 == 11) {
+                    seat_id.add(String.valueOf(6));
+                    selected_seat.setText(seat_count + "," + 6);
+                }
+                if (p2 == 13) {
+                    seat_id.add(String.valueOf(7));
+                    selected_seat.setText(seat_count + "," + 7);
+                }
+                if (p2 == 14) {
+                    seat_id.add(String.valueOf(8));
+                    selected_seat.setText(seat_count + "," + 8);
+                }
+                if (p2 == 19) {
+                    seat_id.add(String.valueOf(9));
+                    selected_seat.setText(seat_count + "," + 9);
+                }
+                if (p2 == 18) {
+                    seat_id.add(String.valueOf(10));
+                    selected_seat.setText(seat_count + "," + 10);
+                }
+                if (p2 == 16) {
+                    seat_id.add(String.valueOf(11));
+                    selected_seat.setText(seat_count + "," + 11);
+                }
+                if (p2 == 15) {
+                    seat_id.add(String.valueOf(12));
+                    selected_seat.setText(seat_count + "," + 12);
+                }
+                if (p2 == 20) {
+                    seat_id.add(String.valueOf(13));
+                    selected_seat.setText(seat_count + "," + 13);
+                }
+                if (p2 == 21) {
+                    seat_id.add(String.valueOf(14));
+                    selected_seat.setText(seat_count + "," + 14);
+                }
+                if (p2 == 23) {
+                    seat_id.add(String.valueOf(15));
+                    selected_seat.setText(seat_count + "," + 15);
+                }
+                if (p2 == 24) {
+                    seat_id.add(String.valueOf(16));
+                    selected_seat.setText(seat_count + "," + 16);
+                }
+                if (p2 == 29) {
+                    seat_id.add(String.valueOf(17));
+                    selected_seat.setText(seat_count + "," + 17);
+                }
+                if (p2 == 28) {
+                    seat_id.add(String.valueOf(18));
+                    selected_seat.setText(seat_count + "," + 18);
+                }
+                if (p2 == 26) {
+                    seat_id.add(String.valueOf(19));
+                    selected_seat.setText(seat_count + "," + 19);
+                }
+                if (p2 == 25) {
+                    seat_id.add(String.valueOf(20));
+                    selected_seat.setText(seat_count + "," + 20);
+                }
+                if (p2 == 30) {
+                    seat_id.add(String.valueOf(21));
+                    selected_seat.setText(seat_count + "," + 21);
+                }
+                if (p2 == 31) {
+                    seat_id.add(String.valueOf(22));
+                    selected_seat.setText(seat_count + "," + 22);
+                }
+                if (p2 == 33) {
+                    seat_id.add(String.valueOf(23));
+                    selected_seat.setText(seat_count + "," + 23);
+                }
+                if (p2 == 34) {
+                    seat_id.add(String.valueOf(24));
+                    selected_seat.setText(seat_count + "," + 24);
+                }
+                if (p2 == 39) {
+                    seat_id.add(String.valueOf(25));
+                    selected_seat.setText(seat_count + "," + 25);
+                }
+                if (p2 == 38) {
+                    seat_id.add(String.valueOf(26));
+                    selected_seat.setText(seat_count + "," + 26);
+                }
+                if (p2 == 36) {
+                    seat_id.add(String.valueOf(27));
+                    selected_seat.setText(seat_count + "," + 27);
+                }
+                if (p2 == 35) {
+                    seat_id.add(String.valueOf(28));
+                    selected_seat.setText(seat_count + "," + 28);
+                }
+                if (p2 == 40) {
+                    seat_id.add(String.valueOf(29));
+                    selected_seat.setText(seat_count + "," + 29);
+                }
+                if (p2 == 41) {
+                    seat_id.add(String.valueOf(30));
+                    selected_seat.setText(seat_count + "," + 30);
+                }
+                if (p2 == 43) {
+                    seat_id.add(String.valueOf(31));
+                    selected_seat.setText(seat_count + "," + 31);
+                }
+                if (p2 == 44) {
+                    seat_id.add(String.valueOf(32));
+                    selected_seat.setText(seat_count + "," + 32);
+                }
+                if (p2 == 49) {
+                    seat_id.add(String.valueOf(33));
+                    selected_seat.setText(seat_count + "," + 33);
+                }
+                if (p2 == 48) {
+                    seat_id.add(String.valueOf(34));
+                    selected_seat.setText(seat_count + "," + 34);
+                }
+                if (p2 == 46) {
+                    seat_id.add(String.valueOf(35));
+                    selected_seat.setText(seat_count + "," + 35);
+                }
+                if (p2 == 45) {
+                    seat_id.add(String.valueOf(36));
+                    selected_seat.setText(seat_count + "," + 36);
+                }
+
+            }
+
+
+        }
+
+        cost.setText("₹" + String.valueOf(balance));
+        //Log.e(TAG,"--------------------ladiesseat------------------------");
+        //Log.e(TAG,"balance------------------------------------->"+balance );
+        balance = 0f;
+        //Log.e(TAG,"--------------------------------------------------------------------------------");
+        customGridAdapter.notifyDataSetChanged();
+
+    }
+
+    private void gentsseat(int p2) {
+        // TODO Auto-generated method stub
+
+        String c = cost.getText().toString();
+        String[] split = c.split("₹");
+        Item item = gridArray.get(p2);
+        seatcompare = item.getImage();
+        if (seatcompare == seatSelect) {
+            balance = Float.valueOf(split[1]) - ticketrate;
+            gridArray.remove(p2);
+            gridArray.add(p2, new Item(genseat, "" + ""));
             count = count - 1;
 
             for (int k = 0; k < 50; k++) {
@@ -1236,6 +1695,12 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(9, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(9);
+                                        gridArray.add(9, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
                                     }
                                 }
 
@@ -1262,6 +1727,14 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         ladies.add(String.valueOf(booked));
 
 
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(8);
+                                        gridArray.add(8, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
+
                                     }
                                 }
 
@@ -1286,6 +1759,12 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(5, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(5);
+                                        gridArray.add(5, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
                                     }
                                 }
 
@@ -1310,6 +1789,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(10, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(10);
+                                        gridArray.add(10, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
 
                                     }
                                 }
@@ -1336,6 +1822,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
 
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(11);
+                                        gridArray.add(11, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 7) {
@@ -1359,6 +1852,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(13, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(13);
+                                        gridArray.add(13, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
 
                                     }
                                 }
@@ -1385,6 +1885,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
 
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(14);
+                                        gridArray.add(14, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 9) {
@@ -1408,6 +1915,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(19, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(19);
+                                        gridArray.add(19, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
 
                                     }
                                 }
@@ -1434,6 +1948,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
 
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(18);
+                                        gridArray.add(18, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
 
@@ -1459,6 +1980,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
 
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(16);
+                                        gridArray.add(16, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 12) {
@@ -1482,6 +2010,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(15, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(15);
+                                        gridArray.add(15, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 13) {
@@ -1505,6 +2040,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(20, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(20);
+                                        gridArray.add(20, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 14) {
@@ -1528,6 +2070,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(21, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(21);
+                                        gridArray.add(21, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 15) {
@@ -1551,6 +2100,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(23, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(23);
+                                        gridArray.add(23, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 16) {
@@ -1574,6 +2130,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(24, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(24);
+                                        gridArray.add(24, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 17) {
@@ -1597,6 +2160,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(29, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(29);
+                                        gridArray.add(29, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 18) {
@@ -1620,6 +2190,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(28, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(28);
+                                        gridArray.add(28, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 19) {
@@ -1643,6 +2220,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(26, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(26);
+                                        gridArray.add(26, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 20) {
@@ -1666,6 +2250,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(25, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(25);
+                                        gridArray.add(25, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 21) {
@@ -1689,6 +2280,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(30, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(30);
+                                        gridArray.add(30, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 22) {
@@ -1712,6 +2310,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(31, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(31);
+                                        gridArray.add(31, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 23) {
@@ -1735,6 +2340,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(33, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(33);
+                                        gridArray.add(33, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 24) {
@@ -1758,6 +2370,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(34, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(34);
+                                        gridArray.add(34, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 25) {
@@ -1781,6 +2400,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(39, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(390);
+                                        gridArray.add(39, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 26) {
@@ -1804,6 +2430,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(38, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(38);
+                                        gridArray.add(38, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 27) {
@@ -1827,6 +2460,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(36, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(36);
+                                        gridArray.add(36, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 28) {
@@ -1850,6 +2490,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(35, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(35);
+                                        gridArray.add(35, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 29) {
@@ -1873,6 +2520,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(40, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(40);
+                                        gridArray.add(40, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 30) {
@@ -1896,6 +2550,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(41, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(41);
+                                        gridArray.add(41, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 31) {
@@ -1919,6 +2580,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(43, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(43);
+                                        gridArray.add(43, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 32) {
@@ -1942,6 +2610,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(44, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(44);
+                                        gridArray.add(44, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 33) {
@@ -1965,6 +2640,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(49, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(49);
+                                        gridArray.add(49, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 34) {
@@ -1988,6 +2670,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(48, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(48);
+                                        gridArray.add(48, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
 
                                 }
@@ -2012,6 +2701,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(46, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(46);
+                                        gridArray.add(46, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
                                 if (booked == 36) {
@@ -2035,6 +2731,13 @@ public class Seat_Selection_Activity extends Activity implements OnItemClickList
                                         gridArray.add(45, new Item(ladiesseat, "" + ""));
                                         customGridAdapter.notifyDataSetChanged();
                                         ladies.add(String.valueOf(booked));
+                                    } else if (seatstatus.equalsIgnoreCase("M")) {
+
+                                        gridArray.remove(45);
+                                        gridArray.add(45, new Item(genseat, "" + ""));
+                                        customGridAdapter.notifyDataSetChanged();
+                                        gents.add(String.valueOf(booked));
+
                                     }
                                 }
 

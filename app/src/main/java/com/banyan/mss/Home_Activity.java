@@ -314,10 +314,12 @@ public class Home_Activity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_bookticket) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_cancelticket) {
 
         } else if (id == R.id.nav_bookdetails) {
+            Intent in = new Intent(Home_Activity.this, Bookdetail_Activity.class);
+            startActivity(in);
 
         } else if (id == R.id.nav_contact) {
 
