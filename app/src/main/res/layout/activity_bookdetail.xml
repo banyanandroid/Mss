@@ -18,8 +18,12 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/colorPrimary"
-            android:text="MSS Travels"
-            android:gravity="center"/>
+            android:text="Your Tickets"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:paddingLeft="20dp"
+            android:gravity="left|center"/>
 
         <ListView
             android:id="@+id/book_detail_recycler_view_bus"
@@ -34,6 +38,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        android:background="#ececf8"
         app:headerLayout="@layout/nav_header_home_"
         app:menu="@menu/activity_home_drawer" />
 

@@ -27,6 +27,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.accessibility.AccessibilityManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -84,7 +85,7 @@ public class Home_Activity extends AppCompatActivity
 
     private static final String TAG = "";
     SessionManager session;
-    String str_id,str_mobile,str_name;
+    String str_id, str_mobile, str_name;
     /*queue*/
     public static RequestQueue queue;
     /*progress bar*/
@@ -141,7 +142,16 @@ public class Home_Activity extends AppCompatActivity
         circularButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (circularButton.getProgress() == 0) {
+
+                if (autoComplete.getText().toString().equalsIgnoreCase("")) {
+
+                    Toast.makeText(getApplicationContext(), "Please enter Source", Toast.LENGTH_SHORT).show();
+
+                } else if (auto.getText().toString().equalsIgnoreCase("")) {
+
+                    Toast.makeText(getApplicationContext(), "Please enter Destination", Toast.LENGTH_SHORT).show();
+
+                } else if (circularButton.getProgress() == 0) {
                     String place = autoComplete.getText().toString();
                     String places = auto.getText().toString();
                     if (place != null) {
@@ -314,16 +324,21 @@ public class Home_Activity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_bookticket) {
+            Intent inm = new Intent(Home_Activity.this, Home_Activity.class);
+            startActivity(inm);
 
         } else if (id == R.id.nav_cancelticket) {
+            Intent inm = new Intent(Home_Activity.this, Cancel_Bookdetail_Activity.class);
+            startActivity(inm);
 
         } else if (id == R.id.nav_bookdetails) {
             Intent in = new Intent(Home_Activity.this, Bookdetail_Activity.class);
             startActivity(in);
 
-        } else if (id == R.id.nav_contact) {
-
         } else if (id == R.id.nav_about) {
+
+            Intent in = new Intent(Home_Activity.this, Aboutus_Activity.class);
+            startActivity(in);
 
         } else if (id == R.id.nav_logout) {
 
@@ -392,7 +407,7 @@ public class Home_Activity extends AppCompatActivity
             AppConfig.day = slct_day;
             AppConfig.month = slct_month;
             AppConfig.year = slct_year;
-            Toast.makeText(getApplicationContext(), AppConfig.day + "/" + AppConfig.month + "/" + AppConfig.year, Toast.LENGTH_SHORT).show();
+            //t.makeText(getApplicationContext(), AppConfig.day + "/" + AppConfig.month + "/" + AppConfig.year, Toast.LENGTH_SHORT).show();
 
         }
 
@@ -749,7 +764,7 @@ public class Home_Activity extends AppCompatActivity
         String values = "http://mssbus.com/api/?GetTripList&userId=mssapp&password=india44&" +
                 "fromStationId=" + from_id + "&toStationId=" + to_id + "&travelDate=" + dates + "&format=json";
 
-       String value = "http://www.mssbus.com/api/app/?GetTripList&Appkey=HaPpY&fromStationId="+from_id+"&toStationId="+to_id+"&travelDate="+dates+"&format=json";
+        String value = "http://www.mssbus.com/api/app/?GetTripList&Appkey=HaPpY&fromStationId=" + from_id + "&toStationId=" + to_id + "&travelDate=" + dates + "&format=json";
 
         AppConfig.from = autoComplete.getText().toString();
         AppConfig.to = auto.getText().toString();

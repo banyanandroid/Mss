@@ -91,7 +91,7 @@ public class Trip_List_Adapter extends BaseAdapter{
         list_triplist_txt_btype.setText(result.get(Trip_List_Activity.TAG_BTYPE));
         list_triplist_txt_offernames.setText(result.get(Trip_List_Activity.TAG_OFFERNAME));
         list_triplist_txt_offeramount.setText(result.get(Trip_List_Activity.TAG_OFFERAMOUNT));
-        list_triplist_txt_seats.setText("Available Seats "+result.get(Trip_List_Activity.TAG_SEATS));
+        list_triplist_txt_seats.setText("Available Seats:\t\t "+result.get(Trip_List_Activity.TAG_SEATS));
         list_triplist_txt_offer_rate.setText(discount_amt);
 
         return v;

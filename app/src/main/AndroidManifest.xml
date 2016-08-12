@@ -140,19 +140,17 @@
         </receiver>
 
         <activity
-            android:name=".finish_Activity"
-            android:label="@string/title_activity_finish_"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".finish_Activity" />
         <activity android:name=".Eticket_Activity" />
         <activity
-            android:name=".Login_Activity"
-            android:label="@string/title_activity_login_"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".Login_Activity" />
         <activity
-            android:name=".Register_Activity"
-            android:label="@string/title_activity_register_"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Bookdetail_Activity"></activity>
+            android:name=".Register_Activity" />
+        <activity android:name=".Bookdetail_Activity" />
+        <activity android:name=".Ticketdetail_Activity" />
+        <activity android:name=".Cancel_Bookdetail_Activity" />
+        <activity android:name=".Cancel_Ticketdetail_Activity" />
+        <activity android:name=".Aboutus_Activity"></activity>
     </application>
 
 </manifest>

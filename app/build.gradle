@@ -59,4 +59,8 @@ dependencies {
     // http://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
 
+    //read more text
+    compile 'com.borjabravo:readmoretextview:2.0.1'
+    compile 'com.wdullaer:materialdatetimepicker:2.4.0'
+
 }

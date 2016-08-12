@@ -48,10 +48,12 @@ public class Login_Activity extends Activity {
     public static RequestQueue queue;
 
     TextView txt_title, txt_forgot_password, btn_register;
+    String mobile;
     EditText edt_username, edt_password;
+    EditText edt1;
     Button btn_login;
     String str_username, str_password, str_name, str_mobile, str_user_id, str_user_status, str_city = "";
-    String str_forgotpwd_email;
+
 
     // Session Manager Class
     SessionManager session;
@@ -80,7 +82,7 @@ public class Login_Activity extends Activity {
                 str_password = edt_password.getText().toString();
 
                 if (str_username.equals("")) {
-                    edt_username.setError("Enter Username");
+                    edt_username.setError("Enter MobileNumber");
                 } else if (str_password.equals("")) {
                     edt_password.setError("Enter Password");
                 } else {
@@ -136,32 +138,45 @@ public class Login_Activity extends Activity {
         // set prompts.xml to alertdialog builder
         alertDialogBuilder.setView(promptsView);
 
-        final EditText edt1 = (EditText) promptsView
+        edt1 = (EditText) promptsView
                 .findViewById(R.id.alert_edt_mobile);
 
-        str_forgotpwd_email = edt1.getText().toString();
-        String mobile = edt1.getText().toString().trim();
-        AppConfig.url_forgot_psw = "http://www.mssbus.com/api/app/?ForgotPass&Appkey=HaPpY&UserMobile="+mobile+"&format=json";
-
-        try {
-
-            pDialog = new ProgressDialog(Login_Activity.this);
-            pDialog.setMessage("Please wait...");
-            pDialog.show();
-            pDialog.setCancelable(false);
-            queue = Volley.newRequestQueue(Login_Activity.this);
-            ForgotpasswordSendEmail();
-
-        } catch (Exception e) {
-
-        }
 
         alertDialogBuilder.setCancelable(false)
 
                 .setPositiveButton("Done",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
+                                mobile = String.valueOf(edt1.getText());
+                                Toast.makeText(getApplicationContext(), mobile, Toast.LENGTH_SHORT).show();
 
+                                if (mobile.length() == 10) {
+
+                                    AppConfig.url_forgot_psw = "http://www.mssbus.com/api/app/?ForgotPass&Appkey=HaPpY&UserMobile=" + mobile + "&format=json";
+                                    try {
+
+                                        pDialog = new ProgressDialog(Login_Activity.this);
+                                        pDialog.setMessage("Please wait...");
+                                        pDialog.show();
+                                        pDialog.setCancelable(false);
+                                        queue = Volley.newRequestQueue(Login_Activity.this);
+                                        ForgotpasswordSendEmail();
+
+                                    } catch (Exception e) {
+
+                                    }
+                                    dialog.cancel();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Enter Valid Mobile number", Toast.LENGTH_SHORT).show();
+                                }
+
+
+                                dialog.cancel();
+                            }
+                        })
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
 
                                 dialog.cancel();
                             }
@@ -176,7 +191,6 @@ public class Login_Activity extends Activity {
 
     private void ForgotpasswordSendEmail() {
 
-        String tag_json_obj = "json_obj_req";
         StringRequest request = new StringRequest(Request.Method.POST,
                 AppConfig.url_forgot_psw, new Response.Listener<String>() {
 
@@ -185,8 +199,10 @@ public class Login_Activity extends Activity {
                 Log.d(TAG, response.toString());
                 try {
                     JSONObject obj = new JSONObject(response);
-                    JSONObject user = obj.getJSONObject("User");
-                    JSONObject status = user.getJSONObject("0");
+                    JSONArray user = obj.getJSONArray("User");
+
+                    JSONObject status = (JSONObject) user
+                            .get(0);
                     String success = status.getString("StatusMessage");
 
                     if (success.equalsIgnoreCase("Success")) {
@@ -261,7 +277,7 @@ public class Login_Activity extends Activity {
                                 Style.CONFIRM)
                                 .show();
 
-                        session.createLoginSession(str_user_id, str_name, str_mobile,str_city, str_user_status);
+                        session.createLoginSession(str_user_id, str_name, str_mobile, str_city, str_user_status);
                         AppConfig.user_id = str_user_id;
                         AppConfig.user_phone = str_mobile;
 
@@ -269,7 +285,7 @@ public class Login_Activity extends Activity {
                         startActivity(i);
                         finish();
 
-                    } else{
+                    } else {
                         i = 0;
 
                         Crouton.makeText(Login_Activity.this,
@@ -320,7 +336,7 @@ public class Login_Activity extends Activity {
     public void onBackPressed() {
         // your code.
         new AlertDialog.Builder(Login_Activity.this)
-                .setTitle("Schoolbook")
+                .setTitle("MSS Travels")
                 .setMessage("Want to Exit ?")
                 .setIcon(R.mipmap.ic_launcher)
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {

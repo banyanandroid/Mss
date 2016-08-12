@@ -15,6 +15,8 @@ public class AppConfig {
     public static String url_register = null;
     public static String url_forgot_psw = null;
     public static final String url_fromTo_list = "http://www.mssbus.com/api/app/?GetFromToStationIdList&Appkey=HaPpY&format=json";
+    public static String url_cancel_ticket = null;
+    public static String url_conformcancel_ticket = null;
 
     public static String url_boarding_list = null;
 

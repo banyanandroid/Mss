@@ -73,9 +73,8 @@
                     android:text="APP Offer (50%)"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/cpb_red"
+                    android:textSize="16sp" />
 
 
 
@@ -183,9 +182,9 @@
                     android:id="@+id/list_triplist_txt_amt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Reduction:\t"
+                    android:text="Reduction:\t\t"
                     android:gravity="end"
-                    android:layout_weight="0.6"
+                    android:layout_weight="0.7"
                     android:layout_gravity="end"
                     android:textColor="@color/black"
                     android:textSize="18sp"
@@ -208,7 +207,7 @@
                     android:id="@+id/list_triplist_txt_offername"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Rate"
+                    android:text="Rate:\t\t"
                     android:gravity="end"
                     android:layout_weight="0.4"
                     android:textColor="@color/black"

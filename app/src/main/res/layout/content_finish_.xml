@@ -48,7 +48,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="16sp"
             android:text="* Reach the boarding point before 15 min. \r\n* Confirm your seat &amp; boarding point to the nearest office at 6Pm on departure day.\r\n* Seats may be altered based on Male/Female by side. \r\n* The Company is not responsible for any loss, theft or damage to your luggage(s)"
             android:id="@+id/note_txt"
             android:gravity="center"
@@ -56,14 +56,21 @@
             android:layout_below="@+id/cancel_txt"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="62dp" />
+            android:layout_marginTop="32dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/linear"
+            android:gravity="center"
+            android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Contact"
+            android:text="Contact\t:\t\t"
             android:id="@+id/contact_txt"
+            android:textColor="@color/cpb_red"
             android:layout_below="@+id/pnr_txt"
             android:layout_toLeftOf="@+id/pnr_txt"
             android:layout_toStartOf="@+id/pnr_txt" />
@@ -73,10 +80,13 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="9443312377"
+            android:textColor="@color/cpb_red"
             android:id="@+id/ph_no_txt"
             android:layout_below="@+id/pnr_txt"
             android:layout_toRightOf="@+id/pnr_txt"
             android:layout_toEndOf="@+id/pnr_txt" />
+
+</LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -91,14 +101,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/cancel_txt"
             android:gravity="center"
+            android:textColor="@color/colorPrimary"
             android:text="Cancellation charge 15%, No cancellation after 6Pm on the departure day"
-            android:layout_below="@+id/contact_txt"
+            android:layout_below="@+id/linear"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="50dp" />
+            android:layout_marginTop="20dp" />
 
         <Button
             android:layout_width="wrap_content"
